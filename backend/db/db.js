@@ -1,8 +1,9 @@
 const mysql = require("mysql")
+const {DBHOST,DBDATABASE,DBUSER,DBPASSWORD}=require("../config/config")
 const db=mysql.createConnection({
-    "host":"sql6.freemysqlhosting.net",
-    "user":"sql6447767",
-    "password":"e2HW3HhcSf",
-    "database":"sql6447767"
+    "host":DBHOST,
+    "user":DBUSER,
+    "password":DBPASSWORD,
+    "database":DBDATABASE
 })
 module.exports =db

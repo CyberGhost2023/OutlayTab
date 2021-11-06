@@ -1,18 +1,21 @@
 const express= require("express")
 const router = express.Router();
 const db=require("../db/db")
+const auth=require("../middleware/auth")
 
 
-router.get("/",(req,res)=>{
-    db.query("SELECT * FROM Groups;",(err,results)=>{
-        if(err)
-        throw err;
-        res.send(results);
-    })    
+router.get("/",auth,(req,res)=>{
+    // db.query("SELECT * FROM Groups;",(err,result)=>{
+        // if(err)
+        // throw err;
+        // res.render("GroupList");
+        console.log("Here");
+        res.redirect("/");
+    // })    
 })
 
 router.post("/",async (req,res)=>{
-    const qry= "INSERT INTO Groups (GroupName) VALUES (?)";
+    const qry= "INSERT INTO Groups (GroupName) VALUES (?);";
     const {GroupName,UserList}=req.body;
     let groupId=await db.query(qry,[GroupName],(err,result)=>{
         if(err)
