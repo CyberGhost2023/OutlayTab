@@ -5,11 +5,11 @@ const router = express.Router();
 const db=require("../db/db")
 const bcrypt= require("bcrypt")
 
-router.get("/login",(req,res)=>{
+router.get("/login",auth2,(req,res)=>{
     res.render("Login");    
 })
 
-router.post("/login",async (req,res)=>{
+router.post("/login",auth2,async (req,res)=>{
     let {email,password}=req.body;
     query="Select * from Users where UserEmail=?";
     db.query(query,[email, password] ,async (err,result)=>{
@@ -40,7 +40,7 @@ router.post("/login",async (req,res)=>{
     })    
 })
 
-router.get("/logout",(req,res)=>{
+router.get("/logout",auth,(req,res)=>{
     res.clearCookie("access_token");
     res.redirect("/SignUp");
 })

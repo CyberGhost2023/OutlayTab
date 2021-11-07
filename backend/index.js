@@ -39,6 +39,7 @@ db.connect((err)=>{
 app.use("/Groups",require("./routes/GroupsRoute"));
 app.use("/",require("./routes/Login"));
 app.use("/SignUp",require("./routes/SignUp"));
+app.use("/User",require("./routes/UserRoute"));
 
 
 

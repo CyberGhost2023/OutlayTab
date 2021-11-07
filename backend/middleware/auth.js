@@ -1,14 +1,12 @@
 const jwt=require("jsonwebtoken")
 const {SECRETKEY} =require("../config/config")
 
-module.exports= function auth(req,res,next){
+const auth = function (req,res,next){
 
     const token=req.cookies.access_token;
-    // console.log(req.cookies);
     if(!token)
     { 
         console.log(token)
-        // res.render("GroupList");
         res.redirect("/login");
     }
     try{
@@ -21,4 +19,18 @@ module.exports= function auth(req,res,next){
     }
 }
 
-// module.exports = auth;
+const auth2 = function (req,res,next){
+    const token=req.cookies.access_token;
+    if(!token)
+    { 
+        next();
+    }
+    else 
+    res.redirect("/user");
+}
+
+module.exports={
+    "auth":auth,
+    "auth2":auth2
+
+}
