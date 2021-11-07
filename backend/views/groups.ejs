@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="groups_style.css">
-    <link rel="stylesheet" href="nav_style.css" />
+    <link rel="stylesheet" href="/css/groups_style.css">
+    <link rel="stylesheet" href="/css/nav_style.css" />
     <script src="https://kit.fontawesome.com/23068c81bc.js" crossorigin="anonymous"></script> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,16 +50,7 @@
                     <div class="add_exp_1">
                         <h2 style="font-weight: 400;font-size: 15px;">AJJ PARTY KARENGE</h2>
                         <div>
-                            <button class="button_style">Add expense</button>
-                            <button class="button_style">View</button>
-                            <button style="border:none;background-color:white;color:#f3184f"><i class="fas fa-trash"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="add_exp_1">
-                        <h2 style="font-weight: 400;font-size: 15px;">Daru ka Bill</h2>
-                        <div>
-                            <button class="button_style">Add expense</button>
+                            <button id="add_expense" class="button_style">Add expense</button>
                             <button class="button_style">View</button>
                             <button style="border:none;background-color:white;color:#f3184f"><i class="fas fa-trash"></i></button>
                         </div>
@@ -102,29 +93,84 @@
         </div>
     </div>
 
-    <!-- MODAL SECTION ADD EXPENSE-->
-    <!-- <div class="bg-color" style="display: flex;align-items: center;">
-        <div class="modal-contant">
-            <div class="top">Add Expense <button style="background: white;" class="close"><i class="fas fa-times" style="position: relative;left: 220px;bottom: 12px;"></i></button> </div>
-            <div class="list">
-                
+    <div class="bg-color1" style="display: flex;align-items: center;">
+        <div class="modal-contant1">
+            <div class="top1">Add Expense <button style="background: white;" class="close1"><i class="fas fa-times" style="position: relative;left: 220px;bottom: 12px;"></i></button> </div>
+            <div class="list1">
+                <div class="one1">
+                    <h4 class="subpoints">Amount</h4>
+                    <h4 class="subpoints">Paid By</h4>
+                    <h4 class="subpoints">Category</h4>
+                    <h4 class="subpoints">Split By</h4>
+                </div>
+                <div class="two1">
+                    <input class="input_1" type="text">
+                    <input class="input_1" list="paid-by" type="text" placeholder="">
+                        <datalist id="paid-by">
+                            <option value="Me"></option>
+                            <option value="My Friend"></option>
+                            <option value="My Padoshi"></option>
+
+                    </datalist>
+                    <input class="input_1" list="category" type="text" placeholder="">
+                        <datalist id="category">
+                            <option value="Travel"></option>
+                            <option value="Receiption Party"></option>
+                            <option value="Festival"></option>
+                            <option value="Shopping"></option>
+                            <option value="Fuel"></option>
+
+                    </datalist>
+
+                    <input class="input_1" list="share_by" type="text" placeholder="">
+                        <datalist id="share_by">
+                            <option value="Equally"></option>
+                            <option value="Percentage%"></option>
+                            <option value="Shares"></option>
+                    </datalist>
+
+                   <!--pass the arraylist of the group members n we have to implement a for each loop here--> 
+                    <div class="split_list">
+                        <div class="two2">
+                            <h4 class="subpoints">Rohit</h4>
+                        </div>
+                        <div class="two3">
+                            <input class="input_1" style="width: 328px;margin-left: 40px;" type="text">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <script>
+    // SCRIPT FOR ADD NEW GROUP
     $(document).ready(function(){
         $('#add_group').click(function(){
-            $('.bg-color').show();
+            $('.bg-color').css('transform','scale(1)');
         })
     })
     
     $(document).ready(function(){
         $('.close').click(function(){
-            $('.bg-color').hide();
+            $('.bg-color').css('transform','scale(0)');
         })
     })
 
+    // SCRIPT FOR ADD NEW GROUP
+    $(document).ready(function(){
+        $('#add_expense').click(function(){
+            $('.bg-color1').css('transform','scale(1)');
+        })
+    })
+    
+    $(document).ready(function(){
+        $('.close1').click(function(){
+            $('.bg-color1').css('transform','scale(0)');
+        })
+    })
+    
+    //SCRIPT FOR ADD NEW members to the group in the pop up
     $(document).ready(function(){
         $('.add-btn').click(function(){
             var cl = $('#first_product .new_member').clone(true).find('input').val('').end();
