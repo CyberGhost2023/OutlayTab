@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/groups_style.css">
+    <link rel="stylesheet" href="/css/nav_style.css" />
+    <script src="https://kit.fontawesome.com/23068c81bc.js" crossorigin="anonymous"></script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700;900&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- NAV BAR -->
+    <nav>
+        <div class="icon">
+            <b>Quick<br> Split</b>
+            <div class="search_box">
+                <input type="search" placeholder="Search">
+                <span class="fa fa-search"></span>
+            </div>
+        </div>
+        
+        <ol>
+            <li><a href="">Home</a></li>
+            <li><a href="">Friends</a></li>
+            <li><a href="">Groups</a></li>
+            <li><a href="">About Us</a></li>
+            <img src="Resource\download (1).jpg">
+        </ol>
+    </nav>
+    <!-- NAV BAR ENDS -->
+
+    <main>
+        <div class="container">
+            <div class="add_exp">
+                <div class="add_exp2" style="margin-top: 12%;">
+                    <h3 style="font-size: 30px;">Dashboard</h3>
+                    <button style="background-color: #bebafa;
+                    border: none;
+                    height: 35px;
+                    padding: 2px 10px;
+                    border-radius: 4px;" id="add_group">Add new group</button>
+                </div>
+                <hr style="margin: 8px 0;">
+                <div class="group_list">
+                    <div class="add_exp_1">
+                        <h2 style="font-weight: 400;font-size: 15px;">AJJ PARTY KARENGE</h2>
+                        <div>
+                            <button id="add_expense" class="button_style">Add expense</button>
+                            <button class="button_style">View</button>
+                            <button style="border:none;background-color:white;color:#f3184f"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL SECTION ADD NEW GROUP-->
+    <div class="bg-color" style="display: flex;align-items: center;">
+        <div class="modal-contant">
+            <div class="top">New Group <button style="background: white;" class="close"><i class="fas fa-times" style="position: relative;left: 220px;bottom: 12px;"></i></button> </div>
+            <div class="list">
+                <div class="one">
+                    <h4 class="subpoints">Group Name</h4>
+                    <h4 class="subpoints">Members</h4>
+                </div>
+                <div class="two">
+                    <!-- GROUP NAME -->
+                    <input class="input_1" type="text">
+                    <!--NEW MEMBERS-->
+                    <div id="first_product">
+                    <div class="new_member">
+                        <!--adding new member here-->
+                        <input class="input_1" type="text" placeholder="Email">
+                    </div>
+                    </div>
+                    <div class="added_member">
+
+                    </div>    
+                        <div class="btn">
+                            <!--SAVE-->
+                           <button class="close">Save</button>
+                           <button class="add-btn">Add More Member</button>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-color1" style="display: flex;align-items: center;">
+        <div class="modal-contant1">
+            <div class="top1">Add Expense <button style="background: white;" class="close1"><i class="fas fa-times" style="position: relative;left: 220px;bottom: 12px;"></i></button> </div>
+            <div class="list1">
+                <div class="one1">
+                    <h4 class="subpoints">Amount</h4>
+                    <h4 class="subpoints">Paid By</h4>
+                    <h4 class="subpoints">Category</h4>
+                    <h4 class="subpoints">Split By</h4>
+                </div>
+                <div class="two1">
+                    <input class="input_1" type="text">
+                    <input class="input_1" list="paid-by" type="text" placeholder="">
+                        <datalist id="paid-by">
+                            <option value="Me"></option>
+                            <option value="My Friend"></option>
+                            <option value="My Padoshi"></option>
+
+                    </datalist>
+                    <input class="input_1" list="category" type="text" placeholder="">
+                        <datalist id="category">
+                            <option value="Travel"></option>
+                            <option value="Receiption Party"></option>
+                            <option value="Festival"></option>
+                            <option value="Shopping"></option>
+                            <option value="Fuel"></option>
+
+                    </datalist>
+
+                    <input class="input_1" list="share_by" type="text" placeholder="">
+                        <datalist id="share_by">
+                            <option value="Equally"></option>
+                            <option value="Percentage%"></option>
+                            <option value="Shares"></option>
+                    </datalist>
+
+                   <!--pass the arraylist of the group members n we have to implement a for each loop here--> 
+                    <div class="split_list">
+                        <div class="two2">
+                            <h4 class="subpoints">Rohit</h4>
+                        </div>
+                        <div class="two3">
+                            <input class="input_1" style="width: 328px;margin-left: 40px;" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // SCRIPT FOR ADD NEW GROUP
+    $(document).ready(function(){
+        $('#add_group').click(function(){
+            $('.bg-color').css('transform','scale(1)');
+        })
+    })
+    
+    $(document).ready(function(){
+        $('.close').click(function(){
+            $('.bg-color').css('transform','scale(0)');
+        })
+    })
+
+    // SCRIPT FOR ADD NEW GROUP
+    $(document).ready(function(){
+        $('#add_expense').click(function(){
+            $('.bg-color1').css('transform','scale(1)');
+        })
+    })
+    
+    $(document).ready(function(){
+        $('.close1').click(function(){
+            $('.bg-color1').css('transform','scale(0)');
+        })
+    })
+    
+    //SCRIPT FOR ADD NEW members to the group in the pop up
+    $(document).ready(function(){
+        $('.add-btn').click(function(){
+            var cl = $('#first_product .new_member').clone(true).find('input').val('').end();
+            $('.added_member').append(cl);
+
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/nav_style.css" />
+    <link rel="stylesheet" href="/css/profile_style.css">
+    <script src="https://kit.fontawesome.com/23068c81bc.js" crossorigin="anonymous"></script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- NAV BAR -->
+    <nav>
+        <div class="icon">
+            <b>Quick<br> Split</b>
+            <div class="search_box">
+                <input type="search" placeholder="Search">
+                <span class="fa fa-search"></span>
+            </div>
+        </div>
+        
+        <ol>
+            <li><a href="">Home</a></li>
+            <li><a href="">Friends</a></li>
+            <li><a href="">Groups</a></li>
+            <li><a href="">About Us</a></li>
+            <img src="Resource\download (1).jpg">
+        </ol>
+    </nav>
+    <!-- NAV BAR ENDS -->
+
+
+    <!--main body-->
+    <main>
+        
+        <h2 class="main_points" style="margin-top: 90px;
+            margin-bottom: 10px;">My Profile</h2>
+        <section class="container">
+            <div class="left">
+                <div class="user">
+                    <img id="profile_img" src="Resource\download (1).jpg">
+                    <hr>
+                    <h2 class="sub_points">Change your profile picture</h2>
+                    <div style="margin: 5px 0px;">
+                        <a class="edit_profile" style="background-color: #ECECFD;" href="#">Edit Profile</a>
+                    </div>
+                    <h4 class="sub_points"><i class="fas fa-map-marker-alt"></i> Washington</h4>
+                </div>
+                <hr>
+                <div class="badges">
+                    <h4 class="main_points"></h4>
+                    <div class="badge_container" style="width: 240px;height: 110px;">
+                         
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+
+                <div class="right_top">
+                    <div class="card">
+                        <h5 class="top_subpoint">Your name</h5>
+                        <!-- <h4>Sharmistha Das</h4> -->
+                        <div class="card_in">
+                            <h4 class="top_mainpoint">Sharmistha Das</h4>
+                            <div style="flex: 1;">
+                                <a class="edit_profile"  href="#"><i class="fas fa-pen" style="
+                                    margin-right: 8px;
+                                "></i>Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h5 class="top_subpoint">Your email address</h5>
+                        <div class="card_in">
+                            <h4 class="top_mainpoint">abc@gmail.com</h4>
+                            <div style="flex: 1;">
+                                <a class="edit_profile"  href="#"><i class="fas fa-pen" style="
+                                    margin-right: 8px;
+                                "></i>Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h5 class="top_subpoint">Your phone number</h5>
+                        <div class="card_in">
+                            <h4 class="top_mainpoint">+919954631464</h4>
+                            <div style="flex: 1;">
+                                <a class="edit_profile"  href="#"><i class="fas fa-pen" style="
+                                    margin-right: 8px;
+                                "></i>Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h5 class="top_subpoint">Your password</h5>
+                        <div class="card_in">
+                            <h4 class="top_mainpoint">******</h4>
+                            <div style="flex: 1;">
+                                <a class="edit_profile"  href="#"><i class="fas fa-pen" style="
+                                    margin-right: 8px;
+                                "></i>Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="right_down">
+                    <div class="card_1">
+                        <h5 class="top_subpoint">Your default currency</h5>
+                        <input class="input_right_down" list="hosting-plane" type="text" placeholder="Rupee">
+                        <datalist id="hosting-plane">
+                            <option value="Dollars"></option>
+                            <option value="Rupee"></option>
+                            <option value="Euro"></option>
+
+                        </datalist>
+                    </div>
+
+                    <div class="card_1">
+                        <h5 class="top_subpoint">Your Time Zone</h5>
+                        <input class="input_right_down" list="hosting-plane" type="text" placeholder="Chennai">
+                        <datalist id="hosting-plane">
+                            <option value="Kolkata"></option>
+                            <option value="Delhi"></option>
+                            <option value="Bangladesh"></option>
+
+                        </datalist>
+                    </div>
+
+                    <div class="card_1">
+                        <h5 class="top_subpoint">Your Language</h5>
+                        <input class="input_right_down" list="hosting-plane" type="text" placeholder="English">
+                        <datalist id="hosting-plane">
+                            <option value="Hindi"></option>
+                            <option value="Assamese"></option>
+                            <option value="Ullu"></option>
+
+                        </datalist>
+                    </div>
+                </div>
+
+                <!-- <h2  style="flex: 0.2; margin-top: 22px;font-weight: 200;font-size: 26px;">TOP SKILLS</h2>
+                <div class="right_up">
+                    
+                    <div class="right_up_left">
+                        <div class="card" style="padding: 10px;border-radius: 3px;">
+                            <h4>Java</h4>
+                            <div class="progress_bar"></div>
+                            <h6 class="sub_points">Projects</h6>
+                        </div>
+
+                        <div class="card" style="padding: 10px;border-radius: 3px;">
+                            <h4>HTML 5</h4>
+                            <div class="progress_bar"></div>
+                            <h6 class="sub_points">Projects</h6>
+                        </div>
+
+                        <div class="card" style="padding: 10px;border-radius: 3px;">
+                            <h4>SQL</h4>
+                            <div class="progress_bar"></div>
+                            <h6 class="sub_points">Projects</h6>
+                        </div>
+                    </div>
+                    <div class="right_up_right">
+
+                    </div>
+                </div>
+                <hr>
+                <div class="right_down">
+                    <h2 style="margin-top: 5px;font-weight: 200;font-size: 22px;">PERSONAL</h2>
+                    <div class="right_down_container" style="margin-top: 12px;">
+                        <div class="card" style="height: 60px;border-radius: 3px;display: flex;flex-direction: row;">
+                            <div style="flex: 4;">
+                                <h4><i class="fas fa-thumbtack personal"></i>TRACKS</h4>
+                            </div>
+                            <div style="margin: 15px 18px;flex: 1;">
+                                <a class="edit_profile" style="margin-left:50px" href="#">Add</a>
+                            </div>
+                            
+                        </div>
+                        <div class="card" style="height: 60px;border-radius: 3px;">
+                            <h4><i class="fas fa-clipboard personal"></i>NOTEBOOK</h4>
+                        </div>
+                        <div class="card" style="height: 60px;border-radius: 3px;">
+                            <h4><i class="fas fa-user-friends personal"></i>FRIENDS</h4>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+    </main>
+    <!--mainbody ends-->
+</body>
+</html>
