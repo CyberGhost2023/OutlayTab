@@ -4,13 +4,16 @@ const db=require("./db/db")
 const path=require("path")
 const {SECRETKEY}=require("./config/config")
 const cookieParser=require("cookie-parser")
+const ejs=require("ejs")
 
+// Check SECRET KEY 
 if(!SECRETKEY)
 {
     console.log("Fatal Error:JWT private Key Not Defined");
     process.exit(1);
 }
 
+// Use Express body parser
 app.use(cookieParser())
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -24,7 +27,6 @@ app.use(express.static(static_path));
 app.set("view engine", "ejs");
 
 //connect to mysql
-
 db.connect((err)=>{
     if(err)
     {
@@ -35,17 +37,15 @@ db.connect((err)=>{
 
 
 //Routes
-// app.use("/Users",require("./routes/UsersRoute"));
-app.use("/Groups",require("./routes/GroupsRoute"));
+// app.use("/Groups",require("./routes/GroupsRoute"));
 app.use("/",require("./routes/Login"));
 app.use("/SignUp",require("./routes/SignUp"));
-app.use("/User",require("./routes/UserRoute"));
+// app.use("/User",require("./routes/UserRoute"));
 
 
 
-//Listen to  server
+//Start listening 
 const Port= process.env.PORT || 3000;
-
 app.listen(Port,()=>{
     console.log("Server Started");
 })

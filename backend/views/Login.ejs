@@ -35,6 +35,11 @@
            		    	<input name="password" type="password" class="input">
             	   </div>
             	</div>
+				<% if (errObj) { %>
+					<div class="alert alert-danger" role="alert">
+						<%= errObj %> 	
+					</div>
+					<% } %>
             	<a style="text-align: center;" href="#">Forgot Password?</a>
             	<input type="submit" class="btn" value="Login">
 				<a style="text-align: center;" href="/SignUp">Don't have an account? Sign up</a>

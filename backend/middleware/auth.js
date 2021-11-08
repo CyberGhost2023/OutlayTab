@@ -23,14 +23,15 @@ const auth2 = function (req,res,next){
     const token=req.cookies.access_token;
     if(!token)
     { 
+        console.log("Not logged in");
         next();
     }
     else 
-    res.redirect("/user");
+    res.send("Logged In");
 }
 
 module.exports={
-    "auth":auth,
-    "auth2":auth2
+    auth,
+    auth2
 
 }
