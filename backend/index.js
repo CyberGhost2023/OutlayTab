@@ -4,7 +4,7 @@ const db=require("./db/db")
 const path=require("path")
 const {SECRETKEY}=require("./config/config")
 const cookieParser=require("cookie-parser")
-const ejs=require("ejs")
+// const ejs=require("ejs")
 
 // Check SECRET KEY 
 if(!SECRETKEY)
@@ -37,11 +37,14 @@ db.connect((err)=>{
 
 
 //Routes
-// app.use("/Groups",require("./routes/GroupsRoute"));
+app.use("/Groups",require("./routes/GroupsRoute"));
 app.use("/",require("./routes/Login"));
 app.use("/SignUp",require("./routes/SignUp"));
 // app.use("/User",require("./routes/UserRoute"));
 
+app.get("/idiot",(req,res)=>{
+    res.render("groups");
+})
 
 
 //Start listening 

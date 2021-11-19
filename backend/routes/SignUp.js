@@ -9,14 +9,14 @@ const {body,validationResult}=require("express-validator")
 
 
 router.get("/",
-// auth2,
+auth2,
 (req,res)=>{
     // console.log(req);
     res.render("SignUp",{errObj:{}});    
 })
 
 router.post("/",[
-    // auth2,
+    auth2,
     body('email',"Please Enter Valid Email").isEmail().normalizeEmail().custom(value => {
         return new Promise((resolve,reject)=>{
             db.query("Select * from Users where UserEmail = ?",[value],(err,result)=>

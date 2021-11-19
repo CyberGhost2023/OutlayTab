@@ -7,11 +7,12 @@ const auth = function (req,res,next){
     if(!token)
     { 
         console.log(token)
-        res.redirect("/login");
+        return res.redirect("/login");
     }
     try{
         const decoded = jwt.verify(token,SECRETKEY);
         req.user=decoded;
+        req.user.UserId=parseInt(req.user.UserId)
         next();
     }
     catch(ex){
@@ -23,7 +24,7 @@ const auth2 = function (req,res,next){
     const token=req.cookies.access_token;
     if(!token)
     { 
-        console.log("Not logged in");
+        // console.log("Not logged in");
         next();
     }
     else 
