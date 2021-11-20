@@ -6,7 +6,6 @@ const {auth}=require("../middleware/auth")
 
 //working
 router.get("/",auth,(req,res)=>{
-    // console.log("In groups");
     const curUser=req.user.UserId;
     const qry="Select GrpId from UserGroups where UsrId = (?)";
     db.query(qry,[curUser],(err,result)=>{
@@ -40,10 +39,10 @@ router.get("/",auth,(req,res)=>{
 //working
 router.get("/newGroup",auth,(req,res)=>{
     
-    res.render("groupForm",{user:req.user});
+    res.render("groupForm",{ user:req.user,errors:""});
 })
 
-
+//working
 router.post("/newGroup",auth, (req,res)=>{
     console.log(req.body);
     const UsersList=[]
@@ -53,43 +52,47 @@ router.post("/newGroup",auth, (req,res)=>{
             UsersList.push(val);
         }
     }
-    console.log(UsersList);
+    // console.log(UsersList);
+    const qry= "INSERT INTO `Groups` (GroupName) VALUES (?);";
+    const {GroupName}=req.body;
+    db.query(qry,[GroupName,UsersList],(err,result)=>{
+        if(err)
+        {
+            return res.send("Group Name already present");
+        }
+        const GrpId=parseInt(result.insertId);
+        // console.log(GrpId)
+        const qry="Select UserId from Users where UserEmail in (?);"
+        db.query(qry,[UsersList,GrpId],(err,result)=>{
+            if(err)
+                throw err;
+            if(result.length!=UsersList.length)
+            {
+                // console.log("All Email Addresses are not valid");
+                const qry="Delete from `Groups` where GroupId in (?)";
+                db.query(qry,[GrpId],(err,result)=>{
+                    // console.log(result);
+                    // console.log("group deleted");
+                })
+                return res.render("groupForm",{user:req.user,errors:"Emails Invalid or duplicate"})
+            }        
+            else 
+            {
+                const qry="Insert into UserGroups (UsrId,GrpId) values ?;"
+                const ary=[];
+                for(let i=0;i<result.length;i++)
+                {
+                    ary.push([result[i].UserId,GrpId]);
+                }
+                db.query(qry,[ary],(err,result)=>{
+                    if(err)
+                    throw err;
+                    res.redirect("/groups");
+                });  
+            }
+        })
 
-    // const qry= "INSERT INTO `Groups` (GroupName) VALUES (?);";
-    // const {GroupName}=req.body;
-    // // UsersList.push(req.user.UserEmail);
-    // db.query(qry,[GroupName,UsersList],(err,result)=>{
-    //     if(err)
-    //     {
-    //     throw err;
-    //     }
-    //     const GrpId=result.insertId;
-    //     const qry="Select UserId from Users where UserEmail in (?);"
-    //     db.query(qry,[UsersList,GrpId],(err,result)=>{
-    //         if(err)
-    //             throw err;
-    //         if(result.length!=UsersList.length)
-    //         {
-    //             console.log("All Email Addresses are not valid");
-    //             return;
-    //         }        
-    //         else 
-    //         {
-    //             const qry="Insert into UserGroups (UsrId,GrpId) values ?;"
-    //             const ary=[];
-    //             for(let i=0;i<result.length;i++)
-    //             {
-    //                 ary.push([result[i].UserId,GrpId]);
-    //             }
-    //             db.query(qry,[ary],(err,result)=>{
-    //                 if(err)
-    //                 throw err;
-    //                 res.send("HELLO WORLD")
-    //             });  
-    //         }
-    //     })
-
-    // })
+    })
 })
 
 function getUserInGroup(grpId,UsrId){

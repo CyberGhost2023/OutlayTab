@@ -26,6 +26,7 @@
             let newele=ref.cloneNode(true);
             newele.id=st;
             newele.childNodes[1].childNodes[1].setAttribute("name",st);
+            newele.childNodes[1].childNodes[1].value="";
             newele.childNodes[3].setAttribute("onClick",val);
             addBefore.parentNode.insertBefore(newele,addBefore);
         }
@@ -84,7 +85,12 @@
         
         <!-- buttons section-->
         <div class="form-group row">
-			<div class="col-8 offset-4">
+            <% if (errors) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= errors %> 	
+                </div>
+            <% } %>
+			<div class="col-8 offset-4">             
             <span  class="btn btn-primary btn-lg" onclick="addElement()">Add Member  </span>
 			<button type="submit" class="btn btn-primary btn-lg">Add Group</button>
 			</div>  
